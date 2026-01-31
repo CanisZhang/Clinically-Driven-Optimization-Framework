@@ -13,7 +13,7 @@ cfg.num_noise_iterations_optim = 20;
 cfg.num_noise_iterations_true  = 50;
 
 % ====== CRN: Fixed randomness during optimization ======
-cfg.crn_master_seed = 20260128;             % Keep fixed for reproducibility
+cfg.crn_master_seed = 19491001;             % Keep fixed for reproducibility
 rng(cfg.crn_master_seed, 'twister');
 cfg.CRNSeeds = randi(2^31-1, 1, cfg.num_noise_iterations_optim);
 
