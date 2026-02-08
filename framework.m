@@ -6,10 +6,10 @@ cfg.num_repeats              = 5;           % Outer repeats
 cfg.timeACQ                  = 11.6;        % Used in constraints/time calc
 cfg.penalty_infeasible       = 1e6;         % Penalty for infeasible/failed eval
 
-% ---- Optimization-stage noise (Cheaper) ----
+% ---- Optimization-stage noise ----
 cfg.num_noise_iterations_optim = 20;
 
-% ---- True-evaluation noise (More accurate) ----
+% ---- True-evaluation noise  ----
 cfg.num_noise_iterations_true  = 50;
 
 % ====== CRN: Fixed randomness during optimization ======
