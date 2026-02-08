@@ -1,28 +1,17 @@
-%% ===================== SURROGATEOPT + CRN (IMPULSED) =====================
 clear; clc;
 
 %% -------- Global Configuration --------
 cfg.num_repeats              = 5;           % Outer repeats
 cfg.timeACQ                  = 11.6;        % Used in constraints/time calc
 cfg.penalty_infeasible       = 1e6;         % Penalty for infeasible/failed eval
-
-% ---- Optimization-stage noise ----
 cfg.num_noise_iterations_optim = 20;
-
-% ---- True-evaluation noise  ----
 cfg.num_noise_iterations_true  = 50;
-
-% ====== CRN: Fixed randomness during optimization ======
-cfg.crn_master_seed = 20241111;             % Keep fixed for reproducibility
+cfg.crn_master_seed = 20241111;
 rng(cfg.crn_master_seed, 'twister');
 cfg.CRNSeeds = randi(2^31-1, 1, cfg.num_noise_iterations_optim);
-
-% ====== True mean evaluation: Independent randomness ======
-cfg.num_true_trials  = 30;                  % Trials for true mean verification
+cfg.num_true_trials  = 30;
 cfg.true_master_seed = 13579;
-
-% ====== Feasible initial points sampling ======
-cfg.init_feasible_want     = 20;            % Target feasible seeds
+cfg.init_feasible_want = 20;            % Target feasible seeds
 cfg.init_feasible_maxdraws = 2000;          % Max random draws
 
 %% Start Parallel Pool
